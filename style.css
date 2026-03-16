@@ -1,0 +1,58 @@
+.answerBox {
+    display: flex;
+    justify-content: right;
+    font-size: 40px;
+    background-color: lightyellow;
+    flex-direction: row;
+    flex: 0.5 1 auto;
+    min-width: 300px;
+    border: 5px solid burlywood;
+    margin: 50px;
+}
+
+.numberDisplay {
+    padding: 0px 25px 0px 0px;
+}
+
+.buttonGrid {
+    border: black solid;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    background-color: lightgrey;
+    margin: 50px;
+    min-height: 200px;
+}
+
+.numberButtonGrid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    padding: 10px;
+    justify-content: center;
+}
+
+.numberButtonGrid button {
+    background-color: darkgrey;
+    text-align: center;
+    width: 33%;
+    align-content: center;
+    border-radius: 5px;
+}
+
+.operationButtonGrid {
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 5px;
+    background-color: fill;
+    padding: 10px;
+}
+
+.operationButtonGrid div {
+    color: white;
+    background-color: blue;
+    font-size: 30px;
+    font-weight: bold;
+    border: black solid 3px;
+    text-align: center;
+    align-content: center;
+}
