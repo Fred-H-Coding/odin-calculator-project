@@ -47,7 +47,7 @@
     padding: 10px;
 }
 
-.operationButtonGrid div {
+.operationButtonGrid button {
     color: white;
     background-color: blue;
     font-size: 30px;
@@ -55,4 +55,5 @@
     border: black solid 3px;
     text-align: center;
     align-content: center;
+    border-radius: 5px;
 }
