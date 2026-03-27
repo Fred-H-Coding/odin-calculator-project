@@ -27,8 +27,6 @@ function divide(a,b) {
     }
 }
 
-
-
 //Creates nodeLists and then arrays of number buttons and operation buttons //
 
 const numberButtons = document.querySelectorAll('button.numberButton');
@@ -47,6 +45,7 @@ for (let i = 0; i<numberButtonArray.length; i++) {
         if (operator === "") {
             a += numberButtonArray[i].textContent;
             numberDisplay.textContent = a;
+            solution = a;
             return a; 
         }
         else {
@@ -59,14 +58,30 @@ for (let i = 0; i<numberButtonArray.length; i++) {
 
 //Operator Button event Listeners added through mapping.
 
-operationButtonArray.map((opButton) => opButton.addEventListener("click", () => {
-    operator = opButton.textContent;
-    return operator;
-} ));
+operationButtonArray.map((opButton) => {
+    opButton.addEventListener("click", () => {
+        
+        if (operator != "") {
+            equalsignButton.click();
+            a = solution;
+            b = "";
+        }
+
+        operator = opButton.textContent;
+        return operator;
+} );
+    opButton.addEventListener("click", function turnActive() {
+        document.querySelector(".active")?.classList.remove("active");
+
+        this.classList.add("active");
+    })  
+});
 
 equalsignButton.addEventListener("click", () => {
     operate(a,operator,b);
     numberDisplay.textContent = solution;
+    document.querySelector(".active")?.classList.remove("active");
+    return solution;
 } );
 
 clearButton.addEventListener("click", () => {
@@ -75,6 +90,7 @@ clearButton.addEventListener("click", () => {
     operator = "";
     solution = 0;
     numberDisplay.textContent = solution;
+    document.querySelector(".active")?.classList.remove("active");
 });
 
 const numberDisplay = document.querySelector('.numberDisplay');
@@ -83,6 +99,9 @@ const numberDisplay = document.querySelector('.numberDisplay');
 
 function operate(a,operator,b) {
     a = Number(a);
+    if (b == "") {
+        return;
+    }
     b = Number(b);
     switch (operator) {
         case "+":
